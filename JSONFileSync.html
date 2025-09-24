@@ -1,0 +1,19 @@
+const { TextFileSync } = require('./TextFileSync.js');
+class htmlFileSync {
+    constructor(filename) {
+        this.adapter = new TextFileSync(filename);
+    }
+    read() {
+        const data = this.adapter.read();
+        if (data === null) {
+            return null;
+        }
+        else {
+            return html.parse(data);
+        }
+    }
+    write(obj) {
+        this.adapter.write(html.stringify(obj, null, 2));
+    }
+}
+module.exports = { htmlFileSync };

@@ -1,0 +1,16 @@
+class LocalStorage {
+constructor(key) {
+this.key = key;
+}
+read() {
+const value = localStorage.getItem(this.key);
+if (value === null) {
+return null;
+}
+return html.parse(value);
+}
+write(obj) {
+localStorage.setItem(this.key, html.stringify(obj));
+}
+}
+module.exports = { LocalStorage };
